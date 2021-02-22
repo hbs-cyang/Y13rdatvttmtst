@@ -1521,36 +1521,35 @@ none'><span style='font-size:14.0pt;font-family:"Arial",sans-serif'><o:p>&nbsp;<
 </div>
 
 <script>
-	var unfocusedCount = 0;
-	var unfocusedTime = 0;
+var unfocusedCount = 0;
+var unfocusedTime = 0;
 
-	// Handle page visibility change events
-	function handleFocusChange()
-	{
-	  unfocusedCount++;
+// Handle page visibility change events
+function handleFocusChange()
+{
+	unfocusedCount++;
 
-		if (unfocusedTime < 60)
-	  {
-				var unfocusStartTime = new Date();
-
-	      alert("You have just left this window which is not allowed while completing the test. Please return to the test by confirming this message, and do not leave the test page again.\n\nNumber of times unfocused: " + unfocusedCount + "\nTotal time unfocused: < 1 minute");
-
-	      var unfocusEndTime = new Date();
-	      unfocusedTime += Math.round((unfocusEndTime - unfocusStartTime)/1000);
-	  }
-	  else
-	  {
+	if (unfocusedTime < 60)
+  	{
 		var unfocusStartTime = new Date();
 
-	      alert("You have just left this window which is not allowed while completing the test. Please return to the test by confirming this message, and do not leave the test page again.\n\nNumber of times unfocused: " + unfocusedCount + "\nTotal time unfocused: " + Math.round(unfocusedTime/60) + " minute(s)");
+      		alert("You have just left this window which is not allowed while completing the test. Please return to the test by confirming this message, and do not leave the test page again.\n\nNumber of times unfocused: " + unfocusedCount + "\nTotal time unfocused: < 1 minute");
 
-	      var unfocusEndTime = new Date();
-	      unfocusedTime += Math.round((unfocusEndTime - unfocusStartTime)/1000);
-	  }
+      		var unfocusEndTime = new Date();
+      		unfocusedTime += Math.round((unfocusEndTime - unfocusStartTime)/1000);
+  	}
+  	else
+  	{
+		var unfocusStartTime = new Date();
 
-	}
+      		alert("You have just left this window which is not allowed while completing the test. Please return to the test by confirming this message, and do not leave the test page again.\n\nNumber of times unfocused: " + unfocusedCount + "\nTotal time unfocused: " + Math.round(unfocusedTime/60) + " minute(s)");
 
-	document.addEventListener("blur", handleFocusChange);
+      		var unfocusEndTime = new Date();
+      		unfocusedTime += Math.round((unfocusEndTime - unfocusStartTime)/1000);
+  	}
+}
+
+document.addEventListener("blur", handleFocusChange);
 </script>	
 	
 </body>
